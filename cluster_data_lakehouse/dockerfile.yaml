@@ -1,0 +1,19 @@
+FROM gcr.io/datamechanics/spark:platform-3.3.0-hadoop-3.3.2-java-8-scala-2.12-python-3.8-dm19-rc1
+COPY delta-core_2.12-2.1.0.jar /opt/spark/jars
+COPY spark-sql-kafka-0-10_2.12-3.3.0.jar /opt/spark/jars
+COPY delta-storage-2.1.0.jar /opt/spark/jars
+COPY spark-token-provider-kafka-0-10_2.12-3.3.0.jar /opt/spark/jars
+COPY spark-streaming-kafka-0-10_2.12-3.3.0.jar /opt/spark/jars
+COPY spark-tags_2.12-3.3.0.jar /opt/spark/jars
+COPY kafka-clients-2.8.1.jar  /opt/spark/jars
+COPY scala-library-2.12.15.jar /opt/spark/jars
+COPY spark-core_2.12-3.3.0.jar /opt/spark/jars
+COPY commons-pool2-2.11.1.jar /opt/spark/jars
+COPY jsr305-3.0.0.jar /opt/spark/jars
+COPY dremio-jdbc-driver-23.0.1-202210141019030815-c1de8bcc.jar /opt/spark/jars
+COPY hadoop-azure-3.3.2.jar /opt/spark/jars
+COPY hadoop-azure-datalake-3.3.2.jar /opt/spark/jars
+COPY wildfly-openssl-1.0.7.Final.jar /opt/spark/jars
+RUN  pip install delta-spark==2.1.0
+RUN  pip install pytz
+RUN  pip install azure-storage-blob azure-identity
